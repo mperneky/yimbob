@@ -1,10 +1,6 @@
 package helloworld;
 
 /**
- * Created by Yimbo on 2017.07.02..
- */
-
-/**
  * HelloBello object class.
  */
 public class HelloBello {
@@ -14,6 +10,7 @@ public class HelloBello {
 
   /**
    * HelloBello object constructor.
+   *
    * @param id id of the request.
    * @param content the contents of the request.
    */
@@ -24,6 +21,7 @@ public class HelloBello {
 
   /**
    * Returns the id as long.
+   *
    * @return id.
    */
   public long getId() {
@@ -32,6 +30,7 @@ public class HelloBello {
 
   /**
    * Returns the contents as string.
+   *
    * @return contents.
    */
   public String getContent() {
