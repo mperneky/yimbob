@@ -25,9 +25,8 @@ public class HelloController {
    * @return returns a new {@link HelloBello} object.
    */
   @RequestMapping(method = RequestMethod.GET)
-  public
   @ResponseBody
-  HelloBello greet(@RequestParam(value = "name", required = false, defaultValue = "Bob") final String name) {
+  public HelloBello greet(@RequestParam(value = "name", required = false, defaultValue = "Bob") final String name) {
     return new HelloBello(counter.incrementAndGet(), String.format(template, name));
   }
 }
