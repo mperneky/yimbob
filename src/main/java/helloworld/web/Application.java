@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * My first spring boot application.
  */
 @SpringBootApplication
-public class MyApp {
+public class Application {
 
   /**
    * Starts the application.
@@ -15,6 +15,6 @@ public class MyApp {
    * @param args arguments passed.
    */
   public static void main(String[] args) {
-    SpringApplication.run(MyApp.class, args);
+    SpringApplication.run(Application.class, args);
   }
 }
