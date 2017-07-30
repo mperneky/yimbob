@@ -1,5 +1,6 @@
 package com.web;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +25,9 @@ public class HelloController {
    * @return returns a new String.
    */
   @RequestMapping(method = RequestMethod.GET)
-  public String greet(@RequestParam(value = "name", required = false, defaultValue = "Bob") final String name) {
-    return String.format("Helloka, %s", name);
+  public String greet(@RequestParam(value = "name", required = false, defaultValue = "Bob") final String name, Model model) {
+    model.addAttribute("name", name);
+    model.addAttribute("content", "hohoHaha");
+    return "hello";
   }
 }
