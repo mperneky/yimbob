@@ -9,6 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
+  <groupId>com.yimbob-web</groupId>
   <artifactId>yimbob-web</artifactId>
 
   <dependencies>
@@ -30,6 +31,12 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.yimbob-service</groupId>
+      <artifactId>yimbob-service</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
 
   </dependencies>

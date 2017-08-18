@@ -9,7 +9,16 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
+  <groupId>com.yimbob-service</groupId>
   <artifactId>yimbob-service</artifactId>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.questionz-integration</groupId>
+      <artifactId>questionz-integration</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 
 
 </project>
