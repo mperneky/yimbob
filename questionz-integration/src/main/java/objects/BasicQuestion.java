@@ -1,4 +1,4 @@
-package integration;
+package objects;
 
 public class BasicQuestion {
   private String question;

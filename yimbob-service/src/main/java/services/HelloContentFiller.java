@@ -1,23 +1,23 @@
 package services;
 
-import integration.BasicQuestion;
-import integration.RestGetQuestionzImplementation;
+import api.GetQuestionsRestImpl;
 import java.util.List;
+import objects.BasicQuestion;
 
-// Just use the interface here, and inject the right bean from spring?
 public class HelloContentFiller {
-  private final String template = "%s \n %s";
-
+  /**
+   * Gets the contents from the Questions service and returns with the List of BasicQuestions.
+   */
   public String provideContents() {
-    RestGetQuestionzImplementation comm = new RestGetQuestionzImplementation();
+    GetQuestionsRestImpl comm = new GetQuestionsRestImpl();
     List<BasicQuestion> content;
     String result = "";
     try {
       content = comm.getQuestions();
       for (BasicQuestion question : content) {
-        result = result + "\n" + String.format(template, question.getQuestion(), question.getAnswer()) + "\n\n";
+        result = result + "\n" + question.getQuestion() + "\n" + question.getAnswer() + "\n";
       }
-    } catch (Exception e){
+    } catch (Exception e) {
       System.out.print(e.getMessage());
     }
     return result;

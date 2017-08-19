@@ -6,6 +6,8 @@
 </head>
 <body>
   <p th:text="'Questions for: ' + ${name} + '!'" />
-  <p th:text="${content}" />
+  <p th:text="---------------------------------" />
+  <p th:utext="${#strings.replace(#strings.escapeXml(content),'&#10;','&lt;br&gt;')}" />
+  <!--<p th:utext="${#strings.replace( #strings.escapeXml( content ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" />-->
 </body>
 </html>
