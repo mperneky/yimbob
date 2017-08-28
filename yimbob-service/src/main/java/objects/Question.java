@@ -1,11 +1,13 @@
 package objects;
 
-public class BasicQuestion {
-
+/**
+ * Created by Yimbo on 2017.08.28..
+ */
+public class Question {
     private String question;
     private String answer;
 
-    public BasicQuestion(String question, String answer) {
+    public Question(String question, String answer) {
         this.question = question;
         this.answer = answer;
     }

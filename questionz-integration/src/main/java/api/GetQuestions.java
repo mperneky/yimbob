@@ -1,10 +1,8 @@
 package api;
 
-import java.io.IOException;
-import java.util.List;
-import objects.BasicQuestion;
+import objects.QuestionsResponse;
 
 public interface GetQuestions {
 
-    List<BasicQuestion> getQuestions() throws IOException;
+    QuestionsResponse getQuestions();
 }
