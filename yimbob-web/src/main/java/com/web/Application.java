@@ -9,12 +9,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 
-  /**
-   * Starts the application.
-   *
-   * @param args arguments passed.
-   */
-  public static void main(String[] args) {
-    SpringApplication.run(Application.class, args);
-  }
+    /**
+     * Starts the application.
+     *
+     * @param args arguments passed.
+     */
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 }

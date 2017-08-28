@@ -5,5 +5,6 @@ import java.util.List;
 import objects.BasicQuestion;
 
 public interface GetQuestions {
-  List<BasicQuestion> getQuestions() throws IOException;
+
+    List<BasicQuestion> getQuestions() throws IOException;
 }
