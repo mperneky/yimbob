@@ -1,12 +1,13 @@
 package com.web;
 
-import java.util.concurrent.atomic.AtomicLong;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import services.HelloContentFiller;
+
+import services.ContentProvider;
 
 /**
  * Hello controller of my application.
@@ -15,8 +16,8 @@ import services.HelloContentFiller;
 @RequestMapping("/hello")
 public class HelloController {
 
-    private static final String template = "Hello-Bello, %s!";
-    private final AtomicLong counter = new AtomicLong();
+    @Autowired
+    ContentProvider filler;
 
     /**
      * Greets the user with the given or default parameters.
@@ -34,7 +35,7 @@ public class HelloController {
     }
 
     private String fillContents() {
-        HelloContentFiller filler = new HelloContentFiller();
-        return filler.provideContents();
+        filler.provideContents();
+        return null;
     }
 }
