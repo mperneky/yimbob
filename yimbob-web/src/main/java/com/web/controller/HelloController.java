@@ -1,12 +1,13 @@
-package com.web;
+package com.web.controller;
 
+import com.web.domain.ContentFiller;
+import objects.QuestionsResponseObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import services.ContentProvider;
 
 /**
@@ -15,9 +16,13 @@ import services.ContentProvider;
 @Controller
 @RequestMapping("/hello")
 public class HelloController {
+    private QuestionsResponseObject responseObject;
 
     @Autowired
-    ContentProvider filler;
+    ContentProvider contentProvider;
+
+    @Autowired
+    ContentFiller contentFiller;
 
     /**
      * Greets the user with the given or default parameters.
@@ -29,13 +34,14 @@ public class HelloController {
     public String greet(
         @RequestParam(value = "name", required = false, defaultValue = "Bob") final String name,
         Model model) {
-        model.addAttribute("name", name);
-        model.addAttribute("content", fillContents());
+        setResponseObject(name);
+        model.addAttribute("name", responseObject.getRequestor());
+        model.addAttribute("content", contentFiller.getPageContents(responseObject));
+        model.addAttribute("reqID", responseObject.getId());
         return "hello";
     }
 
-    private String fillContents() {
-        filler.provideContents();
-        return null;
+    private void setResponseObject(String name) {
+        responseObject = contentProvider.provideContents(name);
     }
 }

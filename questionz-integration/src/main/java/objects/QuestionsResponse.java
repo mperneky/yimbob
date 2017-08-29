@@ -4,22 +4,31 @@ package objects;
  * Created by Yimbo on 2017.08.28..
  */
 public class QuestionsResponse {
-    private String requestor;
-    private String questions;
     private Long id;
+    private String content;
+    private String requestor;
 
-    public QuestionsResponse(String requestor, String questions, Long id) {
-        this.requestor = requestor;
-        this.questions = questions;
+    public QuestionsResponse() {
+    }
+
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setRequestor(String requestor) {
+        this.requestor = requestor;
     }
 
     public String getRequestor() {
         return requestor;
     }
 
-    public String getQuestions() {
-        return questions;
+    public String getContent() {
+        return content;
     }
 
     public Long getId() {

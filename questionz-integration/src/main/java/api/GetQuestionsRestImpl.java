@@ -8,13 +8,13 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class GetQuestionsRestImpl implements GetQuestions {
 
-    private final String URI = "http://localhost:8090/questions";
+    private final String URI = "http://localhost:8090/questions/?requestor={name}";
 
     @Autowired
     RestTemplate restTemplate;
 
     @Override
-    public QuestionsResponse getQuestions() {
-        return restTemplate.getForObject(URI, QuestionsResponse.class);
+    public QuestionsResponse getQuestions(String name) {
+        return restTemplate.getForObject(URI, QuestionsResponse.class, name);
     }
 }

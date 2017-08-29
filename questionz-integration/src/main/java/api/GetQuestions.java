@@ -4,5 +4,5 @@ import objects.QuestionsResponse;
 
 public interface GetQuestions {
 
-    QuestionsResponse getQuestions();
+    QuestionsResponse getQuestions(String name);
 }

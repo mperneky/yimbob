@@ -1,6 +1,9 @@
 package services;
 
 import api.GetQuestions;
+import java.util.List;
+import objects.BasicQuestion;
+import objects.BasicQuestionTransformer;
 import objects.QuestionsResponse;
 import objects.QuestionsResponseObject;
 
@@ -14,12 +17,16 @@ public class ContentProvider {
     @Autowired
     GetQuestions questionsService;
 
+    @Autowired
+    BasicQuestionTransformer transformer;
+
     /**
      * Gets the contents from the Questions service and returns with the List of BasicQuestions.
      */
-    public QuestionsResponseObject provideContents() {
-        QuestionsResponse response = questionsService.getQuestions();
+    public QuestionsResponseObject provideContents(String name) {
+        QuestionsResponse response = questionsService.getQuestions(name);
+        List<BasicQuestion> questions= transformer.transformResponse(response.getContent());
 
-        return null;
+        return new QuestionsResponseObject(questions, response.getRequestor(), response.getId());
     }
 }

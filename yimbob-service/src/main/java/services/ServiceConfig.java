@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
  * @author Matyas_Perneky
  */
 @Configuration
-@ComponentScan("api")
+@ComponentScan({"api", "objects"})
 public class ServiceConfig {
     @Bean
     public RestTemplate restTemplate() {

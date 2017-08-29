@@ -3,11 +3,11 @@ package objects;
 /**
  * Created by Yimbo on 2017.08.28..
  */
-public class Question {
+public class BasicQuestion {
     private String question;
     private String answer;
 
-    public Question(String question, String answer) {
+    public BasicQuestion(String question, String answer) {
         this.question = question;
         this.answer = answer;
     }
