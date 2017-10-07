@@ -1,38 +1,41 @@
 package services;
 
 import api.GetQuestions;
+
+import com.dtos.objects.YimbobQuestionsObject;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+
 import objects.BasicQuestion;
 import objects.BasicQuestionTransformer;
-import objects.QuestionsResponse;
 import objects.QuestionsResponseObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ContentProvider {
-    private final Long fallbackId = Long.valueOf(42);
+    private final Long fallbackId = 42L;
 
     @Autowired
-    GetQuestions questionsService;
+    private GetQuestions questionsService;
 
     @Autowired
-    BasicQuestionTransformer transformer;
+    private BasicQuestionTransformer transformer;
 
     /**
      * Gets the contents from the Questions service and returns with the List of BasicQuestions.
      */
     @HystrixCommand(fallbackMethod = "worstCaseScenarion")
     public QuestionsResponseObject provideContents(String name) {
-        QuestionsResponse response = questionsService.getQuestions(name);
-        List<BasicQuestion> questions= transformer.transformResponse(response.getContent());
+        YimbobQuestionsObject response = questionsService.getQuestions(name);
 
-        return new QuestionsResponseObject(questions, response.getRequestor(), response.getId());
+
+        return new QuestionsResponseObject(transformer.transformResponse(response.getContent()), response.getRequestor(), response.getId());
     }
+
 
     public QuestionsResponseObject worstCaseScenarion(String name) {
         BasicQuestion question = new BasicQuestion("We ran out of questions!", "Answers as well!");

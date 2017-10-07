@@ -11,6 +11,9 @@
     <module>yimbob-service</module>
     <module>yimbob-web</module>
     <module>questionz-integration</module>
+    <module>yimbob-dto</module>
+    <module>yimbob-api</module>
+    <module>dockestions-integration</module>
   </modules>
   <packaging>pom</packaging>
 
