@@ -1,24 +1,15 @@
 package objects;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-
 /**
- * @author Matyas_Perneky
+ * Created by Yimbo on 2017.08.28..
  */
-public class QuestionsResponseObject {
+public class QuestionsResponse {
     private Long id;
     private String content;
     private String requestor;
 
-    @JsonCreator
-    public QuestionsResponseObject() {
+    public QuestionsResponse() {
     }
-
-//    public QuestionsResponseObject(Long id, String content, String requestor) {
-//        this.id = id;
-//        this.content = content;
-//        this.requestor = requestor;
-//    }
 
     public void setId(Long id) {
         this.id = id;

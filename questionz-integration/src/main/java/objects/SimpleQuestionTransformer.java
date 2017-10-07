@@ -17,7 +17,7 @@ import com.google.gson.JsonParser;
 @Component
 public class SimpleQuestionTransformer {
 
-    public YimbobQuestionsObject transformResponse(QuestionsResponseObject resp) {
+    public YimbobQuestionsObject transformResponse(QuestionsResponse resp) {
         List<SimpleQuestion> questions = new ArrayList<>();
 
         for (JsonElement element : getContentAsJsonArray(resp.getContent())) {
@@ -29,21 +29,9 @@ public class SimpleQuestionTransformer {
         return new YimbobQuestionsObject(resp.getId(), questions, resp.getRequestor());
     }
 
-//    public List<SimpleQuestion> transformResponse(String resp) {
-//        List<SimpleQuestion> questions = new ArrayList<>();
-//
-//        for (JsonElement element : getContentAsJsonArray(resp)) {
-//            String p1 = getJsonObjectData(element.toString(), "Question");
-//            String p2 = getJsonObjectData(element.toString(), "Answer");
-//            questions.add(new SimpleQuestion(p1, p2));
-//        }
-//
-//        return questions;
-//    }
 
     private JsonArray getContentAsJsonArray(String content) {
-        return new JsonParser().parse(content).getAsJsonArray();
-//        return new JsonParser().parse(content).getAsJsonObject().get("Questions").getAsJsonArray();
+        return new JsonParser().parse(content).getAsJsonObject().get("Questions").getAsJsonArray();
     }
 
     private String getJsonObjectData(String object, String target) {

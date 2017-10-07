@@ -6,7 +6,6 @@ import com.dtos.objects.YimbobQuestionsObject;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 import objects.BasicQuestion;
 import objects.BasicQuestionTransformer;
@@ -31,8 +30,6 @@ public class ContentProvider {
     @HystrixCommand(fallbackMethod = "worstCaseScenarion")
     public QuestionsResponseObject provideContents(String name) {
         YimbobQuestionsObject response = questionsService.getQuestions(name);
-
-
         return new QuestionsResponseObject(transformer.transformResponse(response.getContent()), response.getRequestor(), response.getId());
     }
 

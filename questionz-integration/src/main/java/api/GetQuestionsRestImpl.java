@@ -6,7 +6,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.dtos.objects.YimbobQuestionsObject;
 
-import objects.QuestionsResponseObject;
+import objects.QuestionsResponse;
 import objects.SimpleQuestionTransformer;
 
 @Component
@@ -23,7 +23,8 @@ public class GetQuestionsRestImpl implements GetQuestions {
     @Override
     public YimbobQuestionsObject getQuestions(String name) {
 //        return restTemplate.getForObject(URI, YimbobQuestionsObject.class, name);
-        QuestionsResponseObject obj = restTemplate.getForObject(URI, QuestionsResponseObject.class, name);
+
+        QuestionsResponse obj = restTemplate.getForObject(URI, QuestionsResponse.class, name);
         return transformer.transformResponse(obj);
     }
 }
