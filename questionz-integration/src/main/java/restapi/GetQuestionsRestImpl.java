@@ -1,4 +1,4 @@
-package api;
+package restapi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -6,8 +6,9 @@ import org.springframework.web.client.RestTemplate;
 
 import com.dtos.objects.YimbobQuestionsObject;
 
+import api.GetQuestions;
 import objects.QuestionsResponse;
-import objects.SimpleQuestionTransformer;
+import objects.SimpleQuestionRestTransformer;
 
 @Component
 public class GetQuestionsRestImpl implements GetQuestions {
@@ -18,7 +19,7 @@ public class GetQuestionsRestImpl implements GetQuestions {
     private RestTemplate restTemplate;
 
     @Autowired
-    private SimpleQuestionTransformer transformer;
+    private SimpleQuestionRestTransformer transformer;
 
     @Override
     public YimbobQuestionsObject getQuestions(String name) {

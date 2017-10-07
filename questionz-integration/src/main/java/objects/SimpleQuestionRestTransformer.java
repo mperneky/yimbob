@@ -15,7 +15,7 @@ import com.google.gson.JsonParser;
  * @author Matyas_Perneky
  */
 @Component
-public class SimpleQuestionTransformer {
+public class SimpleQuestionRestTransformer {
 
     public YimbobQuestionsObject transformResponse(QuestionsResponse resp) {
         List<SimpleQuestion> questions = new ArrayList<>();

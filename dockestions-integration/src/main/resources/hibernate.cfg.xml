@@ -13,7 +13,7 @@
 
     <!-- Assume test is the database name -->
     <property name="hibernate.connection.url">
-      jdbc:mysql://172.17.0.2/QuestionsDB
+      jdbc:mysql://localhost:3306/QuestionsDB
     </property>
     <property name="hibernate.connection.username">
       root
@@ -23,7 +23,7 @@
     </property>
 
     <!-- List of XML mapping files -->
-    <mapping resource="Employee.hbm.xml"/>
+    <mapping resource="Question.hbm.xml"/>
 
   </session-factory>
 </hibernate-configuration>

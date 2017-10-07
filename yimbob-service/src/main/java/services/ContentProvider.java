@@ -12,14 +12,24 @@ import objects.BasicQuestionTransformer;
 import objects.QuestionsResponseObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ContentProvider {
     private final Long fallbackId = 42L;
 
+    //    @Autowired
+    //    private GetQuestions questionsService;
+
     @Autowired
-    private GetQuestions questionsService;
+    @Qualifier("rest")
+    private GetQuestions questionsRestService;
+
+
+    @Autowired
+    @Qualifier("sql")
+    private GetQuestions questionsSqlService;
 
     @Autowired
     private BasicQuestionTransformer transformer;
@@ -29,7 +39,9 @@ public class ContentProvider {
      */
     @HystrixCommand(fallbackMethod = "worstCaseScenarion")
     public QuestionsResponseObject provideContents(String name) {
-        YimbobQuestionsObject response = questionsService.getQuestions(name);
+        //        YimbobQuestionsObject response = questionsService.getQuestions(name);
+        YimbobQuestionsObject response = questionsRestService.getQuestions(name);
+        YimbobQuestionsObject resp = questionsSqlService.getQuestions(name);
         return new QuestionsResponseObject(transformer.transformResponse(response.getContent()), response.getRequestor(), response.getId());
     }
 
