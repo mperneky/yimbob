@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.dtos.objects.YimbobQuestionsObject;
@@ -17,7 +17,7 @@ import api.GetQuestions;
  * @author Matyas_Perneky
  */
 public class GetQuestionsSQLImpl implements GetQuestions {
-    private static SessionFactory factory;
+    private SessionFactory factory;
     private static final String QUERY = "from object.SqlQuestion";
     private static final long ID = 42;
 
