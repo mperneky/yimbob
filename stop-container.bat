@@ -1,0 +1,1 @@
+call docker rm -f dockestions
