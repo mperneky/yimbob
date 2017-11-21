@@ -14,6 +14,7 @@
     <module>yimbob-dto</module>
     <module>yimbob-api</module>
     <module>dockestions-integration</module>
+    <module>yimbob-security</module>
   </modules>
   <packaging>pom</packaging>
 

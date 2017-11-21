@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Matyas_Perneky
  */
 @Configuration
-@ComponentScan({"services", "com.web.domain"})
+@ComponentScan({"services", "com.web.domain", "com.security.service"})
 public class WebConfig {
 
 }
