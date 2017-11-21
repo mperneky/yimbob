@@ -3,10 +3,12 @@ package com.web.security.dao;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.web.security.model.User;
 
 @Repository("userDao")
+@Transactional
 public class UserDaoImplementation extends AbstractDao<Integer, User> implements UserDao {
 
     public User findById(int id) {
