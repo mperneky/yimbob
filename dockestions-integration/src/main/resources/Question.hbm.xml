@@ -4,17 +4,17 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name = "object.SqlQuestion" table = "Questions">
+  <class name="object.SqlQuestion" table="Questions">
 
-    <meta attribute = "class-description">
+    <meta attribute="class-description">
       Questions stuff.
     </meta>
 
-    <id name = "id" type = "int" column = "id">
+    <id name="id" type="int" column="id">
       <generator class="native"/>
     </id>
-    <property name = "question" column = "Question" type = "string"/>
-    <property name = "answer" column = "Answer" type = "string"/>
+    <property name="question" column="Question" type="string"/>
+    <property name="answer" column="Answer" type="string"/>
 
   </class>
 </hibernate-mapping>

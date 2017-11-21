@@ -21,5 +21,4 @@ public class UserDaoImplementation extends AbstractDao<Integer, User> implements
         return (User) crit.uniqueResult();
     }
 
-
 }

@@ -1,7 +1,5 @@
 package com.web.controller;
 
-import com.web.domain.ContentFiller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -9,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.web.domain.ContentFiller;
 
 import objects.QuestionsResponseObject;
 import services.ContentProvider;
@@ -36,9 +36,7 @@ public class HelloController {
      * @return returns a new String.
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String greet(
-        @RequestParam(value = "name", required = false, defaultValue = "Bob") final String name,
-        Model model) {
+    public String greet(@RequestParam(value = "name", required = false, defaultValue = "Bob") final String name, Model model) {
         setResponseObject(name);
         model.addAttribute("name", responseObject.getRequestor());
         model.addAttribute("content", contentFiller.getPageContents(responseObject));

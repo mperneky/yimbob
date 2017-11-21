@@ -38,7 +38,7 @@ public class ContentProvider {
      */
     @HystrixCommand(fallbackMethod = "worstCaseScenarion")
     public QuestionsResponseObject provideContents(String name) {
-//        YimbobQuestionsObject response = questionsRestService.getQuestions(name);
+        //        YimbobQuestionsObject response = questionsRestService.getQuestions(name);
         YimbobQuestionsObject response = questionsSqlService.getQuestions(name);
         return new QuestionsResponseObject(transformer.transformResponse(response.getContent()), response.getRequestor(), response.getId());
     }

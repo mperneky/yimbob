@@ -1,6 +1,8 @@
 package com.dtos.objects;
 
 /**
+ * SimpleQuestion definition.
+ *
  * @author Matyas_Perneky
  */
 public class SimpleQuestion {

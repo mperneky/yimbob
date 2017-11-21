@@ -9,16 +9,16 @@ import javax.persistence.Table;
  * @author Matyas_Perneky
  */
 @Entity
-@Table(name="QuestionsDB")
+@Table(name = "QuestionsDB")
 public class SqlQuestion {
     @Id
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
     @Id
-    @Column(name="Question")
+    @Column(name = "Question")
     private String question;
     @Id
-    @Column(name="Answer")
+    @Column(name = "Answer")
     private String answer;
 
     public SqlQuestion() {

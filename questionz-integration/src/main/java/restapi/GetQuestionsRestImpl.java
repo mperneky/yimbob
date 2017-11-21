@@ -23,8 +23,6 @@ public class GetQuestionsRestImpl implements GetQuestions {
 
     @Override
     public YimbobQuestionsObject getQuestions(String name) {
-//        return restTemplate.getForObject(URI, YimbobQuestionsObject.class, name);
-
         QuestionsResponse obj = restTemplate.getForObject(URI, QuestionsResponse.class, name);
         return transformer.transformResponse(obj);
     }

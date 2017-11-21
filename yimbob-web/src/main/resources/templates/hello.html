@@ -2,17 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>All the questionz</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Questions for: ' + ${#httpServletRequest.remoteUser} + '!'"/>
-<p th:text="---------------------------------"/>
-<p th:utext="${#strings.replace(#strings.escapeXml(content),'&#10;','&lt;br&gt;')}"/>
-<p th:text="---------------------------------"/>
-<p th:text="'The ID for this request was: ' + ${reqID} + '!'"/>
+<p th:text="'Questions for: ' + ${#httpServletRequest.remoteUser} + '!'" />
+<p th:text="---------------------------------" />
+<p th:utext="${#strings.replace(#strings.escapeXml(content),'&#10;','&lt;br&gt;')}" />
+<p th:text="---------------------------------" />
+<p th:text="'The ID for this request was: ' + ${reqID} + '!'" />
 <!--<p th:utext="${#strings.replace( #strings.escapeXml( content ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}" />-->
 <form th:action="@{/logout}" method="post">
-  <input type="submit" value="Sign Out"/>
+  <input type="submit" value="Sign Out" />
 </form>
 </body>
 </html>

@@ -18,8 +18,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "com.web.security.configuration" })
-@PropertySource(value = { "classpath:application.properties" })
+@ComponentScan({"com.web.security.configuration"})
+@PropertySource(value = {"classpath:application.properties"})
 public class HibernateConfiguration {
 
     @Autowired
@@ -29,7 +29,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.web.security.model" });
+        sessionFactory.setPackagesToScan(new String[]{"com.web.security.model"});
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }

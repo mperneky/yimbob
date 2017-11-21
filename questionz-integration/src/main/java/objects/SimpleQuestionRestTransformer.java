@@ -29,7 +29,6 @@ public class SimpleQuestionRestTransformer {
         return new YimbobQuestionsObject(resp.getId(), questions, resp.getRequestor());
     }
 
-
     private JsonArray getContentAsJsonArray(String content) {
         return new JsonParser().parse(content).getAsJsonObject().get("Questions").getAsJsonArray();
     }

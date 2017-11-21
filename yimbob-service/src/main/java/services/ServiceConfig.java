@@ -20,12 +20,12 @@ public class ServiceConfig {
         return new RestTemplate();
     }
 
-    @Bean(name="rest")
+    @Bean(name = "rest")
     public GetQuestions getRestQuestions() {
         return new GetQuestionsRestImpl();
     }
 
-    @Bean(name="sql")
+    @Bean(name = "sql")
     public GetQuestions getSqlQuestions() {
         return new GetQuestionsSQLImpl();
     }

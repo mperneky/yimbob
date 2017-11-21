@@ -3,7 +3,6 @@ package com.web.controller;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,7 @@ import com.web.security.service.UserService;
 public class RegistrationController {
     private final String CREATE_USER_QUERY = "INSERT INTO Users(sso_id, password, first_name, last_name, email, state) VALUES('%s', '%s', '%s', '%s', '%s', 'Active')";
     private final String USER_PROFILE_QUERY = "INSERT INTO UsersProfile(user_id, user_profile_id) SELECT user.id, profile.id FROM Users user, Roles"
-        + " profile where user.sso_id='%s' and profile.type='USER';";
+            + " profile where user.sso_id='%s' and profile.type='USER';";
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -38,15 +37,13 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String register(
-        @RequestParam(value = "ssoId", required = true) final String username,
-        @RequestParam(value = "password", required = true) final String password,
-        @RequestParam(value = "firstName", required = true) final String firstName,
-        @RequestParam(value = "lastName", required = true) final String lastName,
-        @RequestParam(value = "email", required = true) final String email,
-        Model model) {
+    public String register(@RequestParam(value = "ssoId", required = true) final String username,
+            @RequestParam(value = "password", required = true) final String password,
+            @RequestParam(value = "firstName", required = true) final String firstName,
+            @RequestParam(value = "lastName", required = true) final String lastName,
+            @RequestParam(value = "email", required = true) final String email, Model model) {
         String result;
-        if(userService.findBySso(username) != null){
+        if (userService.findBySso(username) != null) {
             result = "redirect:/registration?error";
         } else {
             Session session = sessionFactory.getCurrentSession();
@@ -56,7 +53,6 @@ public class RegistrationController {
             profileQuery.executeUpdate();
             result = "redirect:/login";
         }
-
 
         return result;
     }

@@ -9,7 +9,7 @@ import com.web.security.model.User;
 
 @Service("userService")
 @Transactional
-public class UserServiceImplementation implements UserService{
+public class UserServiceImplementation implements UserService {
 
     @Autowired
     private UserDao dao;
